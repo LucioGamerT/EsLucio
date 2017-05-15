@@ -37,5 +37,6 @@ int main() {
 	cout << "La differenza e' " << differenza3 << endl;
 	cout << "La divisione e' " << divisione3 << endl;
 	cout << "La moltiplicazione e' " << moltiplicazione3 << endl << endl;
+
 	return 0;
 }
