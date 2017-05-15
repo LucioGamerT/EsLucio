@@ -15,10 +15,10 @@ int main() {
 		if (a < x < c & d < y < b) {
 			cout << "Il punto inserito si trova all'interno del rettangolo." << endl;
 		}
-		else {
+		else (x < a || x > c & y < d || y > b) {
 			cout << "Il punto non si trova all'interno del rettangolo." << endl;
 		}
-		cout << "Vuoi ripetere l'operazione? Se sì digitare 1, in caso contrario digitare 2." << endl;
+		cout << "Vuoi ripetere l'operazione? Se si' digitare 1, in caso contrario digitare 2." << endl;
 		cin >> risposta;
 	} while (risposta == 1);
 
