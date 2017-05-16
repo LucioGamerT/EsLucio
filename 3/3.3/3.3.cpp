@@ -131,7 +131,7 @@ int main() {
 	if (anno1 - anno2 < 100 && anno1 - anno2>0) {
 		anni = anno1 - anno2;
 		mesi = abs(mese1 - mese2);
-		giorni = abs(giorno1 - giorno1);
+		giorni = abs(giorno1 - giorno2);
 		cout << "Hai " << anni << " anni, " << mesi << " mesi e " << giorni << " giorni!" << endl;
 		return 0;
 	}
