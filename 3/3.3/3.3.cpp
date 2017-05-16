@@ -11,6 +11,8 @@ int main() {
 	int giorni = 0;
 	int mesi = 0;
 	int anni = 0;
+	int gmesi1 = 0;
+	int gmesi2 = 0;
 	int futuro = 0;
 	int pargolo = 0;
 	int febbraio = 28;
@@ -27,13 +29,39 @@ int main() {
 	else if (anno1 % 4 == 0) {
 		bisestile1 = 1;
 	}
-	
+
 	if (anno2 % 100 == 0) {
 		if (anno2 % 400 == 0)
 			bisestile2 = 1;
 	}
 	else if (anno2 % 4 == 0) {
 		bisestile2 = 1;
+	}
+
+	if (mese1 == 1 || mese1 == 3 || mese1 == 5 || mese1 == 7 || mese1 == 8 || mese1 == 10 || mese1 == 12) {
+		gmesi1 == 31;
+	}
+	else if (mese1 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11) {
+		gmesi1 == 30;
+	}
+	if (mese1 == 2 && bisestile1 == 1) {
+		gmesi1 == 29;
+	}
+	else if (mese1 == 2 && bisestile1 == 0) {
+		gmesi1 == 28;
+	}
+
+	if (mese2 == 1 || mese2 == 3 || mese2 == 5 || mese2 == 7 || mese2 == 8 || mese2 == 10 || mese2 == 12) {
+		gmesi2 == 31;
+	}
+	else if (mese2 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11) {
+		gmesi2 == 30;
+	}
+	if (mese2 == 2 && bisestile2 == 1) {
+		gmesi2 == 29;
+	}
+	else if (mese2 == 2 && bisestile2 == 0) {
+		gmesi2 == 28;
 	}
 
 	if (anno2 > anno1) {
@@ -48,8 +76,8 @@ int main() {
 				futuro = 1;
 			}
 			/* qui basta mettere un else if con questa condizione perchè messe qui sono già incluse le precedenti
-			   (cioè siamo già dentro il caso in cui anno1 == anno2 e mese1 == mese2) */
-			else if (giorno2 == giorno1) { 
+			(cioè siamo già dentro il caso in cui anno1 == anno2 e mese1 == mese2) */
+			else if (giorno2 == giorno1) {
 				pargolo = 1;
 			}
 		}
@@ -69,10 +97,10 @@ int main() {
 	if (giorno2 > 30 && (mese2 == 2 || mese2 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11)) {
 		err = 1;
 	}
-	if (giorno1 > 29 && bisestile1 == 0 && mese1 == 1) {
+	if (giorno1 > 29 && bisestile1 == 1 && mese1 == 2) {
 		err = 1;
 	}
-	if (giorno2 > 29 && bisestile2 == 0 && mese2 == 1) {
+	if (giorno2 > 29 && bisestile2 == 1 && mese2 == 2) {
 		err = 1;
 	}
 
@@ -80,6 +108,15 @@ int main() {
 		cout << "Una delle due date e' scritta in modo incorretto!" << endl;
 		return 0; // imposto un uscita dal programma anche qui perchè le date sono sbagliate
 	}
+	if (anno2 == anno1) {
+		anni == 0;
+	}
+	/*else if ()
+	mesi = mese1 - mese2;
+	giorni = giorno1 - giorno2;
+	cout << "Complimenti neonato! Hai " << mesi << " e " << giorni << " giorni!" << endl; */
+
+
 
 	// cout test
 	cout << "Le date inserite sono valide\n\n"; // vedrai che se err == 1 il programma esce (dato che abbiamo messo un return 0)
