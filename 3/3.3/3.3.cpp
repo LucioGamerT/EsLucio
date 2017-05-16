@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 int main() {
@@ -38,31 +39,31 @@ int main() {
 		bisestile2 = 1;
 	}
 
-	if (mese1 == 1 || mese1 == 3 || mese1 == 5 || mese1 == 7 || mese1 == 8 || mese1 == 10 || mese1 == 12) {
-		gmesi1 == 31;
+	/*if (mese1 == 1 || mese1 == 3 || mese1 == 5 || mese1 == 7 || mese1 == 8 || mese1 == 10 || mese1 == 12) {
+		gmesi1 = 31;
 	}
 	else if (mese1 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11) {
-		gmesi1 == 30;
+		gmesi1 = 30;
 	}
 	if (mese1 == 2 && bisestile1 == 1) {
-		gmesi1 == 29;
+		gmesi1 = 29;
 	}
 	else if (mese1 == 2 && bisestile1 == 0) {
-		gmesi1 == 28;
+		gmesi1 = 28;
 	}
 
 	if (mese2 == 1 || mese2 == 3 || mese2 == 5 || mese2 == 7 || mese2 == 8 || mese2 == 10 || mese2 == 12) {
-		gmesi2 == 31;
+		gmesi2 = 31;
 	}
 	else if (mese2 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11) {
-		gmesi2 == 30;
+		gmesi2 = 30;
 	}
 	if (mese2 == 2 && bisestile2 == 1) {
-		gmesi2 == 29;
+		gmesi2 = 29;
 	}
 	else if (mese2 == 2 && bisestile2 == 0) {
-		gmesi2 == 28;
-	}
+		gmesi2 = 28;
+	} */
 
 	if (anno2 > anno1) {
 		futuro = 1;
@@ -97,10 +98,10 @@ int main() {
 	if (giorno2 > 30 && (mese2 == 2 || mese2 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11)) {
 		err = 1;
 	}
-	if (giorno1 > 29 && bisestile1 == 1 && mese1 == 2) {
+	if (giorno1 > 28 && bisestile1 == 0 && mese1 == 2) {
 		err = 1;
 	}
-	if (giorno2 > 29 && bisestile2 == 1 && mese2 == 2) {
+	if (giorno2 > 28 && bisestile2 == 0 && mese2 == 2) {
 		err = 1;
 	}
 
@@ -109,18 +110,30 @@ int main() {
 		return 0; // imposto un uscita dal programma anche qui perchè le date sono sbagliate
 	}
 	if (anno2 == anno1) {
-		anni == 0;
+		anni = 0;
+		mesi = mese1 - mese2;
+		giorni = giorno1 - giorno2;
+		if (mese1 == mese1) {
+			mesi = mese1 - mese2;
+			giorni = giorno1 - giorno2;
+			cout << "Complimenti neonato! Hai " << mesi << " mesi e " << giorni << " giorni!" << endl;
+			return 0;
+		}
 	}
-	/*else if ()
-	mesi = mese1 - mese2;
-	giorni = giorno1 - giorno2;
-	cout << "Complimenti neonato! Hai " << mesi << " e " << giorni << " giorni!" << endl; */
 
-
-
-	// cout test
-	cout << "Le date inserite sono valide\n\n"; // vedrai che se err == 1 il programma esce (dato che abbiamo messo un return 0)
-												// e quindi non stampa questa scritta
-
+	if (anno1 - anno2 > 100) {
+		anni = anno1 - anno2;
+		mesi = abs(mese1 - mese2);
+		giorni = abs(giorno1 - giorno1);
+		cout << "Vecchieto eh! Hai ben " << anni << " anni, " << mesi << " mesi e " << giorni << " giorni!" << endl;
+		return 0;
+	}
+	if (anno1 - anno2 < 100 && anno1 - anno2>0) {
+		anni = anno1 - anno2;
+		mesi = abs(mese1 - mese2);
+		giorni = abs(giorno1 - giorno1);
+		cout << "Hai " << anni << " anni, " << mesi << " mesi e " << giorni << " giorni!" << endl;
+		return 0;
+	}
 	return 0;
 }
