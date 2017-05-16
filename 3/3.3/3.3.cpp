@@ -126,7 +126,11 @@ int main() {
 		if (mese1 - mese2 < 0) {
 			anni--;
 		}
-		mesi = abs(mese1 - mese2);
+		/*mesi = abs(mese1 - mese2);
+		if (giorno1 - giorno2 < 0) {
+			mesi--;
+			if(mese1==1||)
+		}*/
 		giorni = abs(giorno1 - giorno1);
 		cout << "Vecchieto eh! Hai ben " << anni << " anni, " << mesi << " mesi e " << giorni << " giorni!" << endl;
 		return 0;
