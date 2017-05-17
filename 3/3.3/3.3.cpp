@@ -19,9 +19,17 @@ int main() {
 	int febbraio = 28;
 
 	cout << "Digitare la data di oggi (gg mm aaaa):" << endl;
-	cin >> giorno1 >> mese1 >> anno1;
+	//cin >> giorno1 >> mese1 >> anno1;
 	cout << "Digitare la data di nascita scelta (gg mm aaaa):" << endl;
-	cin >> giorno2 >> mese2 >> anno2;
+	//cin >> giorno2 >> mese2 >> anno2;
+
+	giorno1 = 17;
+	mese1 = 05;
+	anno1 = 2017;
+
+	giorno2 = 22;
+	mese2 = 10;
+	anno2 = 1996;
 
 	if (anno1 % 100 == 0) {
 		if (anno1 % 400 == 0)
@@ -38,32 +46,6 @@ int main() {
 	else if (anno2 % 4 == 0) {
 		bisestile2 = 1;
 	}
-
-	/*if (mese1 == 1 || mese1 == 3 || mese1 == 5 || mese1 == 7 || mese1 == 8 || mese1 == 10 || mese1 == 12) {
-	gmesi1 = 31;
-	}
-	else if (mese1 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11) {
-	gmesi1 = 30;
-	}
-	if (mese1 == 2 && bisestile1 == 1) {
-	gmesi1 = 29;
-	}
-	else if (mese1 == 2 && bisestile1 == 0) {
-	gmesi1 = 28;
-	}
-
-	if (mese2 == 1 || mese2 == 3 || mese2 == 5 || mese2 == 7 || mese2 == 8 || mese2 == 10 || mese2 == 12) {
-	gmesi2 = 31;
-	}
-	else if (mese2 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11) {
-	gmesi2 = 30;
-	}
-	if (mese2 == 2 && bisestile2 == 1) {
-	gmesi2 = 29;
-	}
-	else if (mese2 == 2 && bisestile2 == 0) {
-	gmesi2 = 28;
-	} */
 
 	if (anno2 > anno1) {
 		futuro = 1;
@@ -126,24 +108,52 @@ int main() {
 		if (mese1 - mese2 < 0) {
 			anni--;
 		}
-		/*mesi = abs(mese1 - mese2);
+		mesi = abs(mese1 - mese2);
 		if (giorno1 - giorno2 < 0) {
 			mesi--;
-			if(mese1==1||)
-		}*/
-		giorni = abs(giorno1 - giorno1);
-		cout << "Vecchieto eh! Hai ben " << anni << " anni, " << mesi << " mesi e " << giorni << " giorni!" << endl;
+		}
+		if (mese2 == 1 || mese2 == 3 || mese2 == 5 || mese2 == 7 || mese2 == 8 || mese2 == 10 || mese2 == 12) {
+			giorni = 31 - giorno2 + giorno1;
+
+			if (mese2 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11) {
+				giorni = 30 - giorno2 + giorno1;
+			}
+			if (mese2 == 2 && bisestile2 == 1) {
+				giorni = 29 - giorno2 + giorno1;
+			}
+			else {
+				giorni = 28 - giorno2 + giorno1;
+			}
+		}
+
+		cout << "Vecchieto eh! Hai ben " << anni << " anni. "/* << mesi << " mesi e " << giorni << " giorni!"*/ << endl;
 		return 0;
 	}
+
 	if (anno1 - anno2 < 100 && anno1 - anno2>0) {
 		anni = anno1 - anno2;
-		if (mese1 - mese2 < 0) {
-			anni--;
-		}
-		mesi = abs(mese1 - mese2);
-		giorni = abs(giorno1 - giorno2);
-		cout << "Hai " << anni << " anni, " << mesi << " mesi e " << giorni << " giorni!" << endl;
-		return 0;
 	}
+	if (mese1 - mese2 < 0) {
+		anni--;
+	}
+	mesi = abs(mese1 - mese2);
+	if (giorno1 - giorno2 < 0) {
+		mesi--;
+	}
+	mesi = abs(mese1 - mese2);
+	if (mese2 == 1 || mese2 == 3 || mese2 == 5 || mese2 == 7 || mese2 == 8 || mese2 == 10 || mese2 == 12) {
+		giorni = 31 - giorno2 + giorno1;
+		if (mese2 == 4 || mese2 == 6 || mese2 == 9 || mese2 == 11) {
+			giorni = 30 - giorno2 + giorno1;
+		}
+		if (mese2 == 2 && bisestile2 == 1) {
+			giorni = 29 - giorno2 + giorno1;
+		}
+		else {
+			giorni = 28 - giorno2 + giorno1;
+		}
+	}
+	cout << "Hai " << anni << " anni. "/* << mesi << " mesi e " << giorni << " giorni!"*/ << endl;
 	return 0;
 }
+		
