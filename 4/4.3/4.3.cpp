@@ -4,7 +4,6 @@ using namespace std;
 int main() {
 	cout << "Inserisci un serie di numeri interi positivi e ti diro' quanti di questi sono pari!(max 100 numeri)" << endl;
 	int num[100];
-	int div = 2;
 	int numarr = 0;
 
 	for (int i = 0; i < 100; i++) {
