@@ -18,13 +18,15 @@ int main() {
 	int a = 0;
 	for (int i = num; i > 0; i--) {
 		if (num%i == 0) {
-			divisori[a] = i;
-			cout << i;
-			if (i > 1) { 
-				cout << ", ";
-			}
+			a++;
 		}
+
+			/*if (a > 1) {
+				cout << ", ";
+			}*/
+		
 	}
+	cout << a;
 	cout << ".\n\n";
 
 	return 0;
