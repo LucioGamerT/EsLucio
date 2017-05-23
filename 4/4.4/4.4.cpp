@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+int main() {
 	int seq[100];
 	int grandsq = 0;
 	int max = 0;
@@ -16,11 +16,10 @@ int main(){
 		}
 	} while (grandsq == 0);
 
-
 	for (int i = 0; i < grandsq; i++) {
 		cout << "Elemento " << i + 1 << ": ";
 		cin >> seq[i];
-		
+
 	}
 	for (int i = 0; i < grandsq; i++) {
 		if (min == 0) {
@@ -28,7 +27,7 @@ int main(){
 		}
 		if (seq[i] < min) {
 			min = seq[i];
-		}		
+		}
 		if (max == 0) {
 			max = seq[i];
 		}
