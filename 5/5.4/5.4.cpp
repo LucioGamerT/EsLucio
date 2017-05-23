@@ -6,43 +6,49 @@ int main() {
 	int scelta = 0;
 	int serie[32];
 	int primo = 0;
-	int a = 0;
+	int divisori = 0;
 
 	cout << "Numeri primi:\n";
 	do {
 		cout << "Quanto vuoi che sia grande la serie di numeri? ";
 		cin >> grand;
 
-		if (grand == 0) {
-			cout << "\nLa sequenza deve contenere almeno un numero!\n\n";
+		if (grand <= 0) {
+			cout << "La sequenza deve contenere almeno un numero! Riprova\n\n";
+			scelta = 1;
 		}
-
-		for (int i = 0; i < grand; i++) {
-			cout << "Elemento: " << i + 1 << ": ";
-			cin >> serie[i];
-			if (serie[i] < 0) {
-				cout << "\nTutti i numeri della serie devono essere positivi!\n\n";
-				return 0;
-			}
-		}
-		cout << "\n";
-
-		for (int i = 0; i < grand; i++) {
-			for (int y = i; y > 0; y--) {
-				if (i%y == 0) {
-					a++;
+		else {
+			for (int i = 0; i < grand; i++) {
+				cout << "Elemento " << i + 1 << ": ";
+				cin >> serie[i];
+				if (serie[i] < 0) {
+					cout << "Tutti i numeri della serie devono essere positivi! Riprova\n\n";
+					i--;
 				}
 			}
-			if (a >= 2) {
-				cout << serie[i] << " non e' primo.\n";
+			cout << "\n";
+
+			for (int i = 0; i < grand; i++) {
+				divisori = 0;
+
+				for (int y = serie[i]; y > 0; y--) {
+					if (serie[i] % y == 0) {
+						divisori++;
+					}
+				}
+
+				if (divisori > 2 || divisori == 1) {
+					cout << serie[i] << " non e' primo.\n";
+				}
+				else if (divisori == 2) {
+					cout << serie[i] << " e' primo.\n";
+				}
 			}
-			else if (a < 2) {
-				cout << serie[i] << " e' primo.\n";
-			}
+
+			cout << "\nVuoi continuare con l'operazione? Se si' digitare 1 in caso contrario digitare 0.\nScelta: ";
+			cin >> scelta;
+			cout << "\n";
 		}
-		cout << "\nVuoi continuare con l'operazione? Se si' digitare 1 in caso contrario digitare 0.\nScelta: ";
-		cin >> scelta;
-		cout << "\n";
 	} while (scelta == 1);
 
 	cout << "\n\n";
