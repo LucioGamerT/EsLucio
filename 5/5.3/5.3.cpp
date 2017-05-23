@@ -3,6 +3,7 @@ using namespace std;
 
 int main() {
 	int a, b, r, mcd; // non è necessario inizializzare le variabili perchè tanto le imposti dopo
+	int tempr = 0;
 	char c;
 
 	cout << "MCD di due numeri:\n";
@@ -18,16 +19,18 @@ int main() {
 			if (a < b) {
 				int tmp = a;
 				a = b;
-				b = a;
+				b = tmp;
 			}
 			r = a % b;
 			if (r == 0) {
 				mcd = b;
 			}
 			else {
-				while (r != 0) { // cosa era "&" ???
-					// TODO
-					r = a % b;
+				while (r != 0) {
+					a = b;   // invertivo nel modo sbagliato cosi mi ritrovavo qua --->
+					b = r;
+					r = a % b; // <---- con r = b % r    e con troppi r non ci capivo un cazzo allora ho invertito e gg viene
+					mcd = b;
 				}
 			}
 		}
