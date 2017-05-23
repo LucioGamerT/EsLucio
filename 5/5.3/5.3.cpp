@@ -22,17 +22,15 @@ int main() {
 				b = tmp;
 			}
 			r = a % b;
-			if (r == 0) {
-				mcd = b;
-			}
-			else {
+			if (r != 0) {
 				while (r != 0) {
 					a = b;   // invertivo nel modo sbagliato cosi mi ritrovavo qua --->
 					b = r;
-					r = a % b; // <---- con r = b % r    e con troppi r non ci capivo un cazzo allora ho invertito e gg viene
-					mcd = b;
+					r = a % b; // <---- con r = b % r e con troppi r non ci capivo un cazzo allora ho invertito e gg viene
+
 				}
 			}
+			mcd = b;
 		}
 
 		cout << "MCD: " << mcd << "\n\n";
