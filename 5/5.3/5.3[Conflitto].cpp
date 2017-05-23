@@ -17,14 +17,15 @@ int main() {
 		if (b == 0) {
 			mcd = a;
 		}
-		else if (a%b == 0) {
-			mcd = b;
+		/*for (r = a%b; r != 0) {
+			if (a%b == 0) {
+				mcd = b;
+			}
+			else if (a%b != 0) {
+				r = a%b;
+				b = a; r = b;
+			}*/
 		}
-	/*	while (a&b != 0) {
-			r = a%b;
-			b = a; r = b;
-			mcd = b;
-		}*/
 
 		cout << "MCD: " << mcd << "\n\n";
 		cout << "Vuoi ripetere l'operazione? Se si digita 1, in caso contrario digita 0.\nScelta: ";
