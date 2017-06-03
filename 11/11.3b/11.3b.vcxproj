@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="11.3.cpp" />
+    <ClCompile Include="11.3b.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2A6F0B8D-1391-4140-A086-CEFC0D193DCA}</ProjectGuid>
+    <ProjectGuid>{C6EBB43F-3247-40D4-8768-71A8F09E147C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Esercitazione11</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
