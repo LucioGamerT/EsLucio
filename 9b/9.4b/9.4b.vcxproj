@@ -24,7 +24,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C6EBB43F-3247-40D4-8768-71A8F09E147C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Esercitazione9b</RootNamespace>
+    <RootNamespace>Esercitazione 9b</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
