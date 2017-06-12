@@ -1,59 +1,60 @@
-
 #include <iostream>
-#include <string>
+#include <string.h> // è questa la libreria con uso strlen e non <string>
 using namespace std;
 
 int main() {
 	char str[256];
-	char vocali[5]{ 'a','e','i','o','u' };
-	int a = 0;
-	int b = 0;
-	int c = 0;
-	int d = 0;
-	int e = 0;
-	int tot[5]{ a,b,c,d,e };
-	int scelta = 0;
+	int a, e, i, o, u, scelta; // più inuforme, inizializzo dopo
+	// rimosse variabili non utilizzate
 
-	cout << "Quante vocali ci sono nella tua stringa?\n";
+	cout << "Quante vocali ci sono nella tua stringa?";
 
 	do {
-		cout << "Inserire un stringa: ";
-		getline(cin, str);
+		// Inizializzo a inizio ciclo
+		a = 0;
+		e = 0;
+		i = 0;
+		o = 0;
+		u = 0;
+
+		cout << "\nInserire un stringa: ";
+		cin.getline(str, 256, '\n');
 
 		for (int k = 0; k < strlen(str); k++) {
 			if (str[k] == 'a') {
 				a++;
 			}
 			if (str[k] == 'e') {
-				b++;
-			}
-			if (str[k] == 'i') {
-				c++;
-			}
-			if (str[k] == 'o') {
-				d++;
-			}
-			if (str[k] == 'u') {
 				e++;
 			}
-		}
-		cout << "\n{ " << a << ", " << b << ", " << c << ", " << d << ", " << e << " } = " << a + b + c + d + e;
-		if (a + b + c + d + e == 1) {
-			cout << " vocale.\n";
-		}
-		else {
-			cout << " vocali.\n";
+			if (str[k] == 'i') {
+				i++;
+			}
+			if (str[k] == 'o') {
+				o++;
+			}
+			if (str[k] == 'u') {
+				u++;
+			}
 		}
 
-		cout << "\nVuoi ripetere l'operazione? Se si' digita 1 altrimenti digita 0: ";
+		int vocali = a + e + i + o + u; // immagazzino il totale in questa variabile perchè -> (vai all'if successivo)
+		cout << "\n{ " << a << ", " << e << ", " << i << ", " << o << ", " << u << " } = " << vocali;
+		if (vocali == 1) { // qui il programma rifarebbe stupidamente il calcolo
+			cout << " vocale.";
+		}
+		else {
+			cout << " vocali.";
+		}
+
+		cout << "\n\nVuoi ripetere l'operazione? Se si' digita 1 altrimenti digita 0: ";
 		cin >> scelta;
-		cout << "\n";
-		a = 0;
-		b = 0;
-		c = 0;
-		d = 0;
-		e = 0;
+		if (scelta == 1) {
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // pulizia buffer std::cin
+		}
 	} while (scelta == 1);
+	
+	cout << '\n';
 
 	return 0;
 }
