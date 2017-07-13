@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string.h>
 
+const int num_max_esami = 5;
+
 void titolo_esercitazione() {
 	std::cout << "Sessione d'esami:\n\n";
 }
@@ -10,11 +12,16 @@ struct esame {
 	char cognome[32];
 	int matricola;
 	int voto;
-} esami[5];
+};
+
+void scriviEsami(esame esami) {
+
+	std::cout << esami.nome << " " << esami.cognome << " (" << esami.matricola << "): " << esami.voto << "\n\n";
+}
 
 int main() {
-	int n;
-	for (n = 1; n < 6; n++) {
+	esame esami[num_max_esami];
+	for (int n = 0; n < 6; n++) {
 		std::cout << "Esame num." << n << ":\n";
 		std::cout << "Nome: ";
 		std::cin >> esami[n].nome;
@@ -28,14 +35,9 @@ int main() {
 	}
 
 	std::cout << "\n--------------------------------------\n\nRiepilogo sessione d'esami:\n";
-	for (n = 1; n < 6; n++) {
+	for (int n = 1; n < 6; n++) {
 		std::cout << "Esame num." << n << ":\n";
 		scriviEsami(esami[n]);
 		return 0;
 	}
-}
-
-void scriviEsami(esame esami) {
-
-	std::cout << esami.nome << " " << esami.cognome << " (" << esami.matricola << "): " << esami.voto << "\n\n";
 }
