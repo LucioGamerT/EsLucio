@@ -1,32 +1,37 @@
 #include <iostream>
 using namespace std;
 
+int sostituisci(char s[], char a, char b) {
+
+	int check = 0;
+	for (int k = 0; k < strlen(s) +1; k++) {
+		if (s[k] == a) {
+			s[k] = b;
+			check++;
+		}
+	}
+	return check;
+}
+
 int main() {
 	cout << "Sostituire un carattere con un altro:\n";
-	char str[256];
-	char sost1;
-	char sost2;
-	int sost = 0;
+	char s[256];
+	char a;
+	char b;
 	int scelta = 0;
 
 	do {
-		cout << "Inserire una stringa: ";
-		cin >> str;
+		cout << "Inserire una stringa (max 256 caratteri): ";
+		cin >> s;
 		cout << "\n";
 		cout << "Inserire ora il carattere che si vuole sostituire e il sostituto:\nA: ";
-		cin >> sost1;
+		cin >> a;
 		cout << "B: ";
-		cin >> sost2;
+		cin >> b;
 
+		int sost = sostituisci(s, a, b);
 
-		for (int k = 0; k < strlen(str); k++) {
-			if (str[k] == sost1) {
-				str[k] = sost2;
-				sost++;
-			}
-		}
-
-		cout << "\nQuesta e' la nuova stringa: " << str;
+		cout << "\nQuesta e' la nuova stringa: " << s;
 
 		if (sost == 1) {
 			cout << "\nIl carattere scelto e'stato sostituito " << sost << " volta.\n";
@@ -39,9 +44,6 @@ int main() {
 		cout << "\n";
 		sost = 0;
 	} while (scelta == 1);
-		
-
-	cout << "\n\n";
 
 	return 0;
 }

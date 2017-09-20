@@ -1,32 +1,43 @@
 #include <iostream>
 #include <string.h>
 
+int sost(char s[], char a) {
+	int b = 0;
+	for (int k = 0; k < strlen(s); k++) {
+		if (s[k] == a) {
+			for (int i = k; i < strlen(s); i++) {
+				s[i] = s[i + 1];
+				if (s[i] == a) {
+					k = 0;
+				}
+			}
+			b++;
+		}
+	}
+	if (s[0] == a) {										// sicuramente si puo' scrivere in modo più carino ma è il modo più semplice e veloce venuto in mente
+		for (int i = 0; i < strlen(s); i++) {
+			s[i] = s[i + 1];
+		}
+		b++;
+	}
+	return b;
+}
+
 int main() {
 	char str[256];
 	char a;
 	int scelta = 0;
 
-	std::cout << "Eliminare un carattere da un stringa:\n";
+	std::cout << "Eliminare un carattere da un stringa:";
 
 	do {
-		int rim = 0;
 
 		std::cout << "\nInserire una stringa: ";
 		std::cin.getline(str, 256, '\n');
 		std::cout << "Scegliere il carattere da cancellare dalla stringa: ";
 		std::cin >> a;
 
-		for (int k = 0; k < strlen(str); k++) {
-			if (str[k] == a) {
-				for (int i = k; i < strlen(str); i++) {
-					str[i] = str[i + 1];
-					if (str[i] == a) {
-						k = 0;
-					}
-				}
-				rim++;
-			}
-		}
+		int rim = sost(str, a);
 
 		if (rim == 0) {
 			std::cout << "\nCarattere non trovato.\nLa stringa rimane la stessa: " << str;
@@ -48,7 +59,7 @@ int main() {
 		}
 	} while (scelta == 1);
 
-	std::cout << "\n\n";
+	std::cout << "\n";
 
 	return 0;
 }

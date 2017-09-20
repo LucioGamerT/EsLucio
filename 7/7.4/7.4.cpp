@@ -2,48 +2,59 @@
 #include <string.h>
 using namespace std;
 
-int main() {
-	char str1[256];
-	char str2[256];
-
-	int anagramma = 0;
-	int check = 0;
-	int k = 1;
-
-
-	cout << "Controllo anagrammi:\n";
-
-	cout << "Inserire due stringe in minuscolo e di lunghezza uguali:\nStringa 1: ";
-	cin >> str1;
-	cout << "Stringa 2: ";
-	cin >> str2;
-
-	anagramma = strlen(str1);
-	if (strlen(str1) != strlen(str2)) {
+int anagramma(char a[], char b[]) {
+	int c = 0;								// vanno bene messi qua questi o ci sta un altro posto più carino????
+	int k = 0;
+	if (strlen(a) != strlen(b)) {
 		cout << "\nLe due stringe non hanno la stessa lunghezza quindi non possono essere anagrammi.\n\n";
 		return 0;
 	}
 	else {
-		do {
-			for (int i = 1; i <anagramma + 1; i++) {
-				if (str1[i] == str2[k]) {                             //    P O R C O D I O 
-					check++;										  //    P O R C O D I O 
+		do
+		{
+			for (int i = 0; i < strlen(a); i++) {
+				if (a[k] == b[i]) {
+					c++;
+					break;
 				}
 			}
 			k++;
-		} while (k - 1 < anagramma);
+		} while (k < strlen(a));
 	}
+	return c;
+}
 
-	if (check == anagramma) {
-		cout << "\nLe due stringhe sono anagrammi.\n";
-	}
-	else {
-		cout << "\nLe due stringhe non sono anagrammi.\n";
-	}
-	cout << k << "\n";
-	cout << check << "\n";
-	cout << anagramma << "\n";
-	cout << "\n\n";
+int main() {
+	char str1[256];
+	char str2[256];
+	int scelta;
+
+	cout << "Controllo anagrammi:\n";
+
+	do {
+
+		cout << "Inserire due stringe in minuscolo e di lunghezza uguali:\nStringa 1: ";
+		cin >> str1;
+		cout << "Stringa 2: ";
+		cin >> str2;
+
+		int check = anagramma(str1, str2);
+
+		if (check == strlen(str1)) {
+			cout << "\nLe due stringhe sono anagrammi.\n";
+		}
+		else {
+			cout << "\nLe due stringhe non sono anagrammi.\n";
+		}
+		cout << "\nVuoi ripetere l'operazione? Se si' digita 1 altrimenti digita 0: ";
+		cin >> scelta;
+		cout << '\n';
+
+		if (scelta == 1) {
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+
+	} while (scelta == 1);
 
 	return 0;
 }

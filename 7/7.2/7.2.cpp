@@ -1,46 +1,47 @@
 #include <iostream>
-#include <string.h> // è questa la libreria con uso strlen e non <string>
+#include <string.h>
 using namespace std;
+
+int vocali_conto(char s[], int v[]) {
+
+	for (int k = 0; k < strlen(s) + 1; k++) {
+		if (s[k] == 'a') {
+			v[0]++;
+		}
+		if (s[k] == 'e') {
+			v[1]++;
+		}
+		if (s[k] == 'i') {
+			v[2]++;
+		}
+		if (s[k] == 'o') {
+			v[3]++;
+		}
+		if (s[k] == 'u') {
+			v[4]++;
+		}
+	}
+
+	return v[0] + v[1] + v[2] + v[3] + v[4];
+}
 
 int main() {
 	char str[256];
-	int a, e, i, o, u, scelta; // più inuforme, inizializzo dopo
-	// rimosse variabili non utilizzate
+	int scelta = 0;
 
 	cout << "Quante vocali ci sono nella tua stringa?";
 
 	do {
-		// Inizializzo a inizio ciclo
-		a = 0;
-		e = 0;
-		i = 0;
-		o = 0;
-		u = 0;
 
 		cout << "\nInserire un stringa: ";
 		cin.getline(str, 256, '\n');
 
-		for (int k = 0; k < strlen(str); k++) {
-			if (str[k] == 'a') {
-				a++;
-			}
-			if (str[k] == 'e') {
-				e++;
-			}
-			if (str[k] == 'i') {
-				i++;
-			}
-			if (str[k] == 'o') {
-				o++;
-			}
-			if (str[k] == 'u') {
-				u++;
-			}
-		}
+		int voc[5] = { 0, 0, 0, 0, 0 };
 
-		int vocali = a + e + i + o + u; // immagazzino il totale in questa variabile perchè -> (vai all'if successivo)
-		cout << "\n{ " << a << ", " << e << ", " << i << ", " << o << ", " << u << " } = " << vocali;
-		if (vocali == 1) { // qui il programma rifarebbe stupidamente il calcolo
+		int vocali = vocali_conto(str, voc);
+
+		cout << "\n{ " << voc[0] << ", " << voc[1] << ", " << voc[2] << ", " << voc[3] << ", " << voc[4] << " } = " << vocali;
+		if (vocali == 1) {
 			cout << " vocale.";
 		}
 		else {
