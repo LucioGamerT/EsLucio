@@ -18,18 +18,11 @@ int main() {
 	int pargolo = 0;
 	int febbraio = 28;
 
-	cout << "Digitare la data di oggi (gg mm aaaa):" << endl;
-	//cin >> giorno1 >> mese1 >> anno1;
-	cout << "Digitare la data di nascita scelta (gg mm aaaa):" << endl;
-	//cin >> giorno2 >> mese2 >> anno2;
+	cout << "Digitare la data di oggi: (gg mm aaaa):" << endl;
+	cin >> giorno1 >> mese1 >> anno1;
+	cout << "\nDigitare la data di nascita scelta: (gg mm aaaa):" << endl;
+	cin >> giorno2 >> mese2 >> anno2;
 
-	giorno1 = 17;
-	mese1 = 05;
-	anno1 = 2017;
-
-	giorno2 = 22;
-	mese2 = 10;
-	anno2 = 1996;
 
 	if (anno1 % 100 == 0) {
 		if (anno1 % 400 == 0)
@@ -50,24 +43,23 @@ int main() {
 	if (anno2 > anno1) {
 		futuro = 1;
 	}
-	else if (anno2 == anno1) { // solito errore dell'operatore uguale (=)! Devi usare l'equivalenza (==)
+	else if (anno2 == anno1) {
 		if (mese2 > mese1) {
 			futuro = 1;
 		}
-		else if (mese2 == mese1) { // idem
+		else if (mese2 == mese1) {
 			if (giorno2 > giorno1) {
 				futuro = 1;
 			}
-			/* qui basta mettere un else if con questa condizione perchè messe qui sono già incluse le precedenti
-			(cioè siamo già dentro il caso in cui anno1 == anno2 e mese1 == mese2) */
+
 			else if (giorno2 == giorno1) {
 				pargolo = 1;
 			}
 		}
 	}
 
-	// soluzione per non avere mille cout uguali
-	int err = 0; // in pratica funziona come int futuro e int pargolo; se err == 1 allora mi dici che le date sono sbagliate
+
+	int err = 0;
 	if (mese1 > 12 || mese2 > 12) {
 		err = 1;
 	}
@@ -87,9 +79,9 @@ int main() {
 		err = 1;
 	}
 
-	if (err == 1) { // come spiegato prima -> se err == 1 allora mi dici che le date sono sbagliate
+	if (err == 1) {
 		cout << "Una delle due date e' scritta in modo incorretto!" << endl;
-		return 0; // imposto un uscita dal programma anche qui perchè le date sono sbagliate
+		return 0;
 	}
 	if (anno2 == anno1) {
 		anni = 0;
@@ -126,7 +118,7 @@ int main() {
 			}
 		}
 
-		cout << "Vecchieto eh! Hai ben " << anni << " anni. "/* << mesi << " mesi e " << giorni << " giorni!"*/ << endl;
+		cout << "\nVecchieto eh! Hai ben " << anni << " anni. "/* << mesi << " mesi e " << giorni << " giorni!"*/ << endl;
 		return 0;
 	}
 
@@ -153,7 +145,7 @@ int main() {
 			giorni = 28 - giorno2 + giorno1;
 		}
 	}
-	cout << "Hai " << anni << " anni. "/* << mesi << " mesi e " << giorni << " giorni!"*/ << endl;
+	cout << "\nHai " << anni << " anni.\n"<< endl;
 	return 0;
 }
-		
+

@@ -51,7 +51,7 @@ int main() {
 		cout << '\n';
 
 		if (scelta == 1) {
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 
 	} while (scelta == 1);

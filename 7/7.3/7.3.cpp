@@ -3,9 +3,9 @@
 
 int sost(char s[], char a) {
 	int b = 0;
-	for (int k = 0; k < strlen(s); k++) {
+	for (int k = 0; k < strlen(s) + 1; k++) {
 		if (s[k] == a) {
-			for (int i = k; i < strlen(s); i++) {
+			for (int i = k; i < strlen(s) + 1; i++) {
 				s[i] = s[i + 1];
 				if (s[i] == a) {
 					k = 0;
@@ -13,12 +13,6 @@ int sost(char s[], char a) {
 			}
 			b++;
 		}
-	}
-	if (s[0] == a) {										// sicuramente si puo' scrivere in modo più carino ma è il modo più semplice e veloce venuto in mente
-		for (int i = 0; i < strlen(s); i++) {
-			s[i] = s[i + 1];
-		}
-		b++;
 	}
 	return b;
 }
