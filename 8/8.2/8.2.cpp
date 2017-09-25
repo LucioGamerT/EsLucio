@@ -3,10 +3,6 @@
 
 const int num_max_appartamenti = 100;
 
-void titolo_esercitazione() {
-	std::cout << "Lista appartamenti:\n\n";
-}
-
 struct appartamento {
 	int codice_identif;
 	char via[32];
@@ -151,13 +147,13 @@ int main() {
 			break;
 		}
 		case 3: {
-			break;
 			int min_sup = 0;
 			int max_sup = 0;
-			std::cout << "\n---------------------------\nInserire minima e massima superficie:\n Min: ";
+			std::cout << "\n---------------------------\nInserire minima e massima superficie:\nMin: ";
 			std::cin >> min_sup;
-			std::cout << "  |   Max: ";
+			std::cout << "Max: ";
 			std::cin >> max_sup;
+			break;
 			std::cout << "\nPrezzo medio appartamenti filtrati: " << media_prezzo_filtro_sup(min_sup, max_sup, num_appartamento, appartamenti) << "\n---------------------------\n";
 
 		}
