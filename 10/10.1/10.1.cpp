@@ -3,7 +3,7 @@ using namespace std;
 
 void memo_sequenza(int a, int b[]) {
 	for (int i = 0; i < a; i++) {
-		cout << "Cifra num. " << i + 1 << "': ";
+		cout << "Cifra num." << i + 1 << "': ";
 		cin >> b[i];
 	}
 }
@@ -35,7 +35,7 @@ int main() {
 	do {
 		int grand_sqz;
 
-		cout << "Numero di cifre componeti la sequenza numerica: ";
+		cout << "Numero di cifre componenti la sequenza numerica: ";
 		cin >> grand_sqz;
 		int *sequenza = new int[grand_sqz];
 		cout << "\nDigitare ora le cifre della sequenza numerica:\n";
